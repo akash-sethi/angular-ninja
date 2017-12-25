@@ -5,6 +5,9 @@ import cookieParser from 'cookie-parser'
 import mongoose from 'mongoose'
 import Promise from 'bluebird'
 import dotenv from 'dotenv'
+import auth from './server/routes/auth';
+import userLog from './server/routes/userLog';
+
 
 const app = express();
 dotenv.config();
@@ -19,6 +22,8 @@ mongoose.connect(process.env.MONGO_DB_URL, {useMongoClient: true}, (err) => {
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(cookieParser());
+app.use('/user', auth);
+app.use('/cvv', userLog);
 app.use(express.static(__dirname + '/dist'));
 
 app.get('*', (req, res) => {
