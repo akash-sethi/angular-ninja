@@ -13,6 +13,7 @@ Make sure you have installed all these:
 
 * Navigate to project directory.
 * git clone https://github.com/akash-sethi/angular-ninja.git
+* cd <project folder>
 * npm install `This will take some time.`
 * ng build
 * start mongo process in other terminal by command `mongod db-path /data/db`
