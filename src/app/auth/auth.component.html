@@ -1,0 +1,52 @@
+<div class="row">
+  <div class="col-sm-6 col-md-4 col-md-offset-4">
+    <h1 class="text-center login-title">{{title}}</h1>
+    <div>
+      <p class="text-xs-center">
+        <a [routerLink]="['/login']" *ngIf="authType == 'signup'">Have an account?</a>
+        <a [routerLink]="['/signup']" *ngIf="authType == 'login'">Need an account?</a>
+      </p>
+      <app-list-errors [errors]="errors"></app-list-errors>
+      <form [formGroup]="authForm" (ngSubmit)="submitForm()">
+        <fieldset [disabled]="isSubmit">
+          <div class="row">
+            <fieldset class="form-group">
+              <label for="email">Email address</label>
+              <input
+                id="email"
+                formControlName="email"
+                placeholder="Email"
+                class="form-control form-control-lg"
+                type="text"
+                />
+            </fieldset>
+            <div *ngIf="authForm.controls['email'].errors && !authForm.controls['email'].pristine"
+                 class="alert alert-danger">
+                <span *ngIf="authForm.controls['email'].invalid">
+                  Please enter a valid email
+                </span>
+            </div>
+          </div>
+          <div class="row">
+            <fieldset class="form-group">
+              <label for="password">Password</label>
+              <input
+                id="password"
+                formControlName="password"
+                placeholder="Password"
+                class="form-control form-control-lg"
+                type="password"/>
+            </fieldset>
+            <div *ngIf="authForm.controls['password'].errors && !authForm.controls['password'].pristine"
+                 class="alert alert-danger">
+                <span *ngIf="authForm.controls['password'].invalid">
+                  Password length should be in range of 7 to 15.
+                </span>
+            </div>
+          </div>
+          <button class="btn btn-primary btn-lg btn-block" [disabled]="!authForm.valid">{{ title }}</button>
+        </fieldset>
+      </form>
+    </div>
+  </div>
+</div>
