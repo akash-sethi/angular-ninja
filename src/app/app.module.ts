@@ -2,6 +2,8 @@ import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 
 import {AppComponent} from './app.component';
+import {HomeModule} from './home/home.module';
+import {AuthModule} from './auth/auth.module';
 import {
   HeaderComponent,
   FooterComponent,
@@ -26,6 +28,8 @@ const rootRoutes = RouterModule.forRoot([]);
   ],
   imports: [
     BrowserModule,
+    HomeModule,
+    AuthModule,
     rootRoutes,
     HttpClientModule,
     SharedModule

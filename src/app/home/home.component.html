@@ -1,0 +1,31 @@
+<div class="row">
+  <div class="col-sm-6 col-md-4 col-md-offset-4">
+    <h1 class="text-center login-title">{{title}}</h1>
+    <div>
+      <app-list-errors [errors]="errors"></app-list-errors>
+
+      <form [formGroup]="securityForm" (ngSubmit)="submitForm()">
+        <fieldset [disabled]="isSubmitting">
+          <div class="row">
+            <fieldset class="form-group">
+              <label for="cvv">CVV</label>
+              <input
+                id="cvv"
+                formControlName="cvv"
+                placeholder="cvv"
+                class="form-control form-control-lg"
+                type="number"/>
+            </fieldset>
+            <div *ngIf="securityForm.controls['cvv'].errors && !securityForm.controls['cvv'].pristine"
+                 class="alert alert-danger">
+                <span *ngIf="securityForm.controls['cvv'].invalid">
+                  Please enter any three digit number.
+                </span>
+            </div>
+          </div>
+          <button class="btn btn-primary btn-lg btn-block" [disabled]="!securityForm.valid">Submit</button>
+        </fieldset>
+      </form>
+    </div>
+  </div>
+</div>
