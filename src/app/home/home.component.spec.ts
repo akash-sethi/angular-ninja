@@ -40,19 +40,19 @@ describe('HomeComponent of home module', () => {
             {provide: UserService, useValue: {}},
             {
               provide: AlertService, useValue: {
-              info: function () {
-                return '';
+                info: function () {
+                  return '';
+                }
               }
-            }
             },
             {
               provide: ActivatedRoute, useValue: {
-              data: {
-                subscribe: (fn: (value: Data) => void) => fn({
-                  name: 'Stepan'
-                })
+                data: {
+                  subscribe: (fn: (value: Data) => void) => fn({
+                    name: 'Stepan'
+                  })
+                }
               }
-            }
             },
             {provide: Router, useClass: RouterStub},
           ]
@@ -81,4 +81,9 @@ describe('HomeComponent of home module', () => {
   it('should check default value of isSubmit', fakeAsync(() => {
     expect(comp.isSubmitting).toEqual(false);
   }));
+
+  it('should initialized component', () => {
+    expect(fixture).toBeDefined();
+    expect(comp).toBeDefined();
+  });
 });
