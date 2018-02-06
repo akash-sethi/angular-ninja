@@ -1,6 +1,9 @@
 import {Directive, OnInit, TemplateRef, ViewContainerRef, Input} from '@angular/core';
 import {UserService} from './services';
 
+/**
+ * This directive checks if user is authorized and display loging/signup link accordingly.
+ */
 @Directive({
   selector: '[appIsAuth]'
 })

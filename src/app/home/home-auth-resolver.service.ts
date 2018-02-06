@@ -4,6 +4,9 @@ import {Observable} from 'rxjs/Observable';
 
 import {UserService} from '../shared';
 
+/**
+ * This service check if user is authenticated and return boolean and allow access to home page if user is authenticated.
+ */
 @Injectable()
 export class HomeAuthResolver implements Resolve<boolean> {
   constructor(private router: Router,

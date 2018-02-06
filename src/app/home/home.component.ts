@@ -39,6 +39,10 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
   }
 
+  /**
+   * This is a helper method for handling errors.
+   * @param err
+   */
   private handleError = (err) => {
     const error = err.errors;
     if (err.statusCode === 401) {
@@ -49,6 +53,9 @@ export class HomeComponent implements OnInit {
     }
   }
 
+  /**
+   * This method takes data from form and make an post call using API service and display success or error message based on api response.
+   */
   submitForm() {
     const data = this.securityForm.value;
     this.userService.checkCvv(data)

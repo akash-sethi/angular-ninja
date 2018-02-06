@@ -7,6 +7,10 @@ import 'rxjs/add/operator/catch';
 import 'rxjs/add/observable/throw';
 import {HttpClient, HttpHeaders, HttpResponse} from '@angular/common/http';
 
+/**
+ * This class handle all http call. Other service class should make http class by calling methods of ApiService only so code is
+ * reusable and cleaner
+ */
 @Injectable()
 export class ApiService {
 
@@ -14,6 +18,10 @@ export class ApiService {
               private http: HttpClient) {
   }
 
+  /**
+   * helper method more setting headers in each request.
+   * @returns {HttpHeaders}
+   */
   private setHeader(): HttpHeaders {
     const config = {
       'Content-type': 'application/json',

@@ -4,6 +4,13 @@ import jwt from 'jsonwebtoken';
 import {parseErrors} from "../utils/errorParser";
 
 module.exports = {
+  /**
+   * This method check the data by comparing with config value if matches success message return and on three failed attempt force logout user.
+   * @param token
+   * @param data
+   * @param callback
+   * @returns {*}
+   */
   checkAndLog: (token, data, callback) => {
     const SECRET = process.env.secretNumber;
     if (!token) return callback({errors: {global: 'TOKEN-EXPIRED'}}, null);
