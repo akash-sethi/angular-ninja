@@ -1,6 +1,8 @@
 # Angular-Ninja
 
-This project demonstrate the demo of MEAN stack application using latest Angular 5 version.
+This project demonstrate the demo of MEAN stack application using latest Angular 5 version. This contain secured auth functionality allow transfering user data
+only by encoding it over network and then decoding on client application and after auth a home component user can make three
+attempt to guess the number on three continously wrong attempt user is forced logout and then needs to login again. 
 
 ## Prerequisite
 Make sure you have installed all these:
